@@ -2,14 +2,14 @@
 #include "DrawPanel/drawpanel.h"
 
 Rectangle::
-Rectangle(QWidget *parent) : QPushButton(parent){
-    connect(this,&QPushButton::clicked,this,&Rectangle::slot_clicked);
+Rectangle(QWidget *parent) : Component(parent){
+    connect(this,&Component::clicked,this,&Rectangle::slot_clicked);
 }
 
 Rectangle::
-Rectangle(Rectangle* c,QWidget *parent) : QPushButton(parent){
+Rectangle(Rectangle* c,QWidget *parent) : Component(parent){
     pComponent = c;
-    connect(this,&QPushButton::clicked,this,&Rectangle::slot_clicked);
+    connect(this,&Component::clicked,this,&Rectangle::slot_clicked);
 }
 
 void Rectangle::

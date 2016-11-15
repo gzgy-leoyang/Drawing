@@ -10,11 +10,16 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    DrawPanel* dp = new DrawPanel(ui->DrawingZone);
-
+    DrawPanel* dp = new DrawPanel(componentList,ui->DrawingZone);
+    connect(dp,&DrawPanel::insertNewComponent,this,&MainWindow::slot_newComponent);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::
+slot_newComponent(){
+
 }

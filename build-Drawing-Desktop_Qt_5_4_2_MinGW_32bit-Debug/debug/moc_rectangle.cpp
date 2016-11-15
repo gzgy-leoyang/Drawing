@@ -73,7 +73,7 @@ void Rectangle::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
 }
 
 const QMetaObject Rectangle::staticMetaObject = {
-    { &QPushButton::staticMetaObject, qt_meta_stringdata_Rectangle.data,
+    { &Component::staticMetaObject, qt_meta_stringdata_Rectangle.data,
       qt_meta_data_Rectangle,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
@@ -88,12 +88,12 @@ void *Rectangle::qt_metacast(const char *_clname)
     if (!_clname) return Q_NULLPTR;
     if (!strcmp(_clname, qt_meta_stringdata_Rectangle.stringdata))
         return static_cast<void*>(const_cast< Rectangle*>(this));
-    return QPushButton::qt_metacast(_clname);
+    return Component::qt_metacast(_clname);
 }
 
 int Rectangle::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QPushButton::qt_metacall(_c, _id, _a);
+    _id = Component::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {

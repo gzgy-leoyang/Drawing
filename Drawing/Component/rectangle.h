@@ -2,6 +2,7 @@
 #define RECTANGLE_H
 
 
+#include "Component/component.h"
 
 #include <QObject>
 #include <QWidget>
@@ -10,7 +11,7 @@
 #include <QPoint>
 #include <QDebug>
 
-class Rectangle : public QPushButton
+class Rectangle : public Component
 {
     Q_OBJECT
 public:
@@ -18,8 +19,6 @@ public:
     Rectangle(Rectangle* c,QWidget *parent = 0);
 
     Rectangle*  pComponent;
-    QPoint      coordinate;
-    QSize       size;
 private:
 
 

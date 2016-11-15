@@ -32,6 +32,7 @@ class DrawPanel : public QWidget
 
 public:
     DrawPanel(QWidget *parent = 0);
+    DrawPanel( QList<Component*> &list ,QWidget *parent = 0);
     ~DrawPanel();
     Rectangle* mCurComponent;
     void updateComponentInfo(Rectangle* mCurComponent);
@@ -49,9 +50,10 @@ private:
 
     QRect* mCurRect;
 
-    QList<Rectangle*>   componentList;
+    QList<Component*> cpttList;
 
-
+signals:
+    void insertNewComponent();
 
 protected:
     void mousePressEvent(QMouseEvent *event);

@@ -37,6 +37,40 @@ DrawPanel::DrawPanel(QWidget *parent)
     endP.setY(0);
 }
 
+DrawPanel::DrawPanel(QList<Component*> &list ,QWidget *parent)
+    : QWidget(parent)
+{
+    setGeometry(0,0,_W,_H);
+    QPalette palette(this->palette());
+    palette.setColor(QPalette::Background, Qt::white);
+    setPalette(palette);
+
+    infoLb = new QLabel("INFO",this);
+    infoLb->setGeometry(10,10,500,30);
+
+    /// 在当前控件中，建立一个“影子元件”，在建立真正元件（附属）的
+    /// 过程中，将影子元件的指针传入，借此可以在真实元件被点击的
+    /// 处理的同时，将真实元件的信息传递到当前控件
+    mCurComponent = new Rectangle(this);
+    mCurComponent->hide();
+
+
+    mouseHasPress = false;
+    mouseHasRelease = false ;
+
+    backgroundPix = new QPixmap(_W,_H);
+    backgroundPix->fill(Qt::white);
+
+    startP.setX(0);
+    startP.setY(0);
+
+    endP.setX(0);
+    endP.setY(0);
+
+    cpttList = list;
+}
+
+
 DrawPanel::~DrawPanel()
 {
 
@@ -122,12 +156,13 @@ mouseReleaseEvent(QMouseEvent *event){
             // 定义从 “左上-->右下” 的拖曳操作方式
             mCurRect = new QRect(startP,endP);
             Rectangle* c = new Rectangle(mCurComponent,this);
-//            component* c = new component(this);
             c->show();
             c->setGeometry(*mCurRect);
             c->coordinate = startP;
             c->size = mCurRect->size();
-            componentList.append(c);
+            cpttList.append(c);
+            emit insertNewComponent();
+
         }
     }
 }
