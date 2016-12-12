@@ -53,7 +53,7 @@ private:
     QList<Component*> cpttList;
 
 signals:
-    void insertNewComponent();
+    void insertNewComponent(Component* cmp);
 
 protected:
     void mousePressEvent(QMouseEvent *event);

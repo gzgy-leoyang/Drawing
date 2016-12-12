@@ -51,8 +51,8 @@ DrawPanel::DrawPanel(QList<Component*> &list ,QWidget *parent)
     /// 在当前控件中，建立一个“影子元件”，在建立真正元件（附属）的
     /// 过程中，将影子元件的指针传入，借此可以在真实元件被点击的
     /// 处理的同时，将真实元件的信息传递到当前控件
-    mCurComponent = new Rectangle(this);
-    mCurComponent->hide();
+    ///mCurComponent = new Rectangle(this);
+    ///mCurComponent->hide();
 
 
     mouseHasPress = false;
@@ -161,7 +161,7 @@ mouseReleaseEvent(QMouseEvent *event){
             c->coordinate = startP;
             c->size = mCurRect->size();
             cpttList.append(c);
-            emit insertNewComponent();
+            emit insertNewComponent(c);
 
         }
     }

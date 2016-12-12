@@ -22,8 +22,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
 private slots:
-    void slot_newComponent();
+    void slot_newComponent(Component* cmp);
+    void slot_componentClick();
 };
 
 #endif // MAINWINDOW_H
