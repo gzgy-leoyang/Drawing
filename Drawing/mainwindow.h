@@ -25,6 +25,7 @@ private:
 
 private slots:
     void slot_newComponent(Component* cmp);
+    void slot_addNewComponent();
     void slot_componentClick();
 };
 

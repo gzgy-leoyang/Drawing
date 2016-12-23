@@ -31,14 +31,10 @@ class DrawPanel : public QWidget
     Q_OBJECT
 
 public:
-    DrawPanel(QWidget *parent = 0);
-    DrawPanel( QList<Component*> &list ,QWidget *parent = 0);
+    DrawPanel( QList<Component*>* list ,QWidget *parent = 0);
     ~DrawPanel();
-    Rectangle* mCurComponent;
     void updateComponentInfo(Rectangle* mCurComponent);
 private:
-//    QFrame *frame;
-//    QPushButton *btn;
     QLabel *infoLb;
 
     QPoint startP;
@@ -50,10 +46,11 @@ private:
 
     QRect* mCurRect;
 
-    QList<Component*> cpttList;
+    QList<Component*>* cpttList;
 
 signals:
     void insertNewComponent(Component* cmp);
+    void creatNewComponent();
 
 protected:
     void mousePressEvent(QMouseEvent *event);

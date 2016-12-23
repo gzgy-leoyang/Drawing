@@ -10,8 +10,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    DrawPanel* dp = new DrawPanel(componentList,ui->DrawingZone);
+    //componentList = new QList();
+    /// 将队列的引用传给 "绘图板",之后这个引用会一级一级的传递下去，确保任何一级都可以向该队列中添加
+    /// 新建的元件对象
+    DrawPanel* dp = new DrawPanel(&componentList,ui->DrawingZone);
     connect(dp,&DrawPanel::insertNewComponent,this,&MainWindow::slot_newComponent);
+    connect(dp,&DrawPanel::creatNewComponent,this,&MainWindow::slot_addNewComponent);
 
     ui->Property_Table->setColumnCount(2);    //设置列数
     ui->Property_Table->setRowCount(5);        //设置行数/
@@ -21,13 +25,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->Property_Table->setHorizontalHeaderLabels(headers);
     ui->Property_Table->setItem(0,0,new QTableWidgetItem("SIZE"));
     ui->Property_Table->setItem(1,0,new QTableWidgetItem("COORLDINATE"));
-
-    /// ui->Component_Tree
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::
+slot_addNewComponent(){
+    qDebug()<<"componentList.count:"<<componentList.count();
 }
 
 void MainWindow::

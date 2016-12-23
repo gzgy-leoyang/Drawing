@@ -16,8 +16,6 @@ class Rectangle : public Component
     Q_OBJECT
 public:
     explicit Rectangle(QWidget *parent = 0);
-    Rectangle(Rectangle* c,QWidget *parent = 0);
-
     Rectangle*  pComponent;
 private:
 
