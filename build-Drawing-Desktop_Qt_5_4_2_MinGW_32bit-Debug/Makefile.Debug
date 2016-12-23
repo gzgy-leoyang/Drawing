@@ -126,8 +126,8 @@ compiler_rcc_clean:
 compiler_moc_header_make_all: debug/moc_mainwindow.cpp debug/moc_rectangle.cpp debug/moc_drawpanel.cpp debug/moc_component.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) debug\moc_mainwindow.cpp debug\moc_rectangle.cpp debug\moc_drawpanel.cpp debug\moc_component.cpp
-debug/moc_mainwindow.cpp: F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QMainWindow \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
+debug/moc_mainwindow.cpp: ../Drawing/Component/component.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QWidget \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qwidget.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qwindowdefs.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qglobal.h \
@@ -229,8 +229,14 @@ debug/moc_mainwindow.cpp: F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QMainW
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QMainWindow \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QList \
 		../Drawing/mainwindow.h
 	F:\Qt\Qt5.4.2\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IF:/Qt/Qt5.4.2/5.4/mingw491_32/mkspecs/win32-g++ -I"E:/Intresting Works/Qt projects/Drawing/Drawing" -IF:/Qt/Qt5.4.2/5.4/mingw491_32/include -IF:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets -IF:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui -IF:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore -I. ..\Drawing\mainwindow.h -o debug\moc_mainwindow.cpp
 
@@ -337,11 +343,11 @@ debug/moc_rectangle.cpp: ../Drawing/Component/component.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QPoint \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QDebug \
 		../Drawing/Component/rectangle.h
@@ -451,11 +457,11 @@ debug/moc_drawpanel.cpp: ../Drawing/Component/rectangle.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QPoint \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QDebug \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QVariant \
@@ -639,6 +645,10 @@ debug/moc_component.cpp: F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QWidget
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h \
 		../Drawing/Component/component.h
 	F:\Qt\Qt5.4.2\5.4\mingw491_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IF:/Qt/Qt5.4.2/5.4/mingw491_32/mkspecs/win32-g++ -I"E:/Intresting Works/Qt projects/Drawing/Drawing" -IF:/Qt/Qt5.4.2/5.4/mingw491_32/include -IF:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets -IF:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui -IF:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore -I. ..\Drawing\Component\component.h -o debug\moc_component.cpp
 
@@ -663,8 +673,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 debug/main.o: ../Drawing/main.cpp ../Drawing/mainwindow.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QMainWindow \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
+		../Drawing/Component/component.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QWidget \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qwidget.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qwindowdefs.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qglobal.h \
@@ -766,8 +776,14 @@ debug/main.o: ../Drawing/main.cpp ../Drawing/mainwindow.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QMainWindow \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QList \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QApplication \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qapplication.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qcoreapplication.h \
@@ -778,8 +794,8 @@ debug/main.o: ../Drawing/main.cpp ../Drawing/mainwindow.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Drawing\main.cpp
 
 debug/mainwindow.o: ../Drawing/mainwindow.cpp ../Drawing/mainwindow.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QMainWindow \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
+		../Drawing/Component/component.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QWidget \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qwidget.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qwindowdefs.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qglobal.h \
@@ -881,8 +897,14 @@ debug/mainwindow.o: ../Drawing/mainwindow.cpp ../Drawing/mainwindow.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QMainWindow \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qmainwindow.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qtabwidget.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QList \
 		ui_mainwindow.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QVariant \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QAction \
@@ -924,9 +946,6 @@ debug/mainwindow.o: ../Drawing/mainwindow.cpp ../Drawing/mainwindow.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QMenuBar \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QSpacerItem \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QStatusBar \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
@@ -940,10 +959,8 @@ debug/mainwindow.o: ../Drawing/mainwindow.cpp ../Drawing/mainwindow.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qtreeview.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qtreewidgetitemiterator.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QVBoxLayout \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QWidget \
 		../Drawing/DrawPanel/drawpanel.h \
 		../Drawing/Component/rectangle.h \
-		../Drawing/Component/component.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QPoint \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QDebug \
@@ -984,7 +1001,6 @@ debug/mainwindow.o: ../Drawing/mainwindow.cpp ../Drawing/mainwindow.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qsplitter.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QLabel \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qlabel.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QList \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/QPainter
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\Drawing\mainwindow.cpp
 
@@ -1092,11 +1108,11 @@ debug/rectangle.o: ../Drawing/Component/rectangle.cpp ../Drawing/Component/recta
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QPoint \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QDebug \
 		../Drawing/DrawPanel/drawpanel.h \
@@ -1283,11 +1299,11 @@ debug/drawpanel.o: ../Drawing/DrawPanel/drawpanel.cpp ../Drawing/DrawPanel/drawp
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QObject \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QPoint \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QDebug \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/QVariant \
@@ -1472,7 +1488,11 @@ debug/component.o: ../Drawing/Component/component.cpp ../Drawing/Component/compo
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfile.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtCore/qfiledevice.h \
 		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qvector2d.h \
-		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qtouchdevice.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/QPushButton \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qpushbutton.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtWidgets/qabstractbutton.h \
+		F:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\component.o ..\Drawing\Component\component.cpp
 
 debug/moc_mainwindow.o: debug/moc_mainwindow.cpp 
