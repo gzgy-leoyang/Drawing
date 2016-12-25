@@ -1,10 +1,11 @@
 #include "component.h"
+#include "mainwindow.h"
 
 //#define _MIN_W  (90)
 //#define _MIN_H  (90)
 
-#define _MIN_W  (610)
-#define _MIN_H  (610)
+#define _MIN_W  (611)
+#define _MIN_H  (589)
 
 Component::Component(QWidget *parent) : QPushButton(parent){
 
@@ -12,6 +13,7 @@ Component::Component(QWidget *parent) : QPushButton(parent){
     QPalette palette(this->palette());
     palette.setColor(QPalette::Background, Qt::white);
     setPalette(palette);
+
 
     mouseHasPress = false;
     mouseHasRelease = false ;
@@ -24,28 +26,36 @@ Component::Component(QWidget *parent) : QPushButton(parent){
 
     endP.setX(0);
     endP.setY(0);
+
 }
 
-Component::Component(Component *parent) : QPushButton(parent){
-
-    parentComponent = parent ;
-    setGeometry(0,0,_MIN_W,_MIN_H);
-    QPalette palette(this->palette());
-    palette.setColor(QPalette::Background, Qt::white);
-    setPalette(palette);
-
-    mouseHasPress = false;
-    mouseHasRelease = false ;
-
-    backgroundPix = new QPixmap(500,500);
-    backgroundPix->fill(Qt::green);
-
-    startP.setX(0);
-    startP.setY(0);
-
-    endP.setX(0);
-    endP.setY(0);
+void Component::
+setBackground(QColor color,int width,int height){
+    backgroundPix->scaledToWidth(width);
+    backgroundPix->scaledToHeight(height);
+    backgroundPix->fill(color);
 }
+
+//Component::Component(Component *parent) : QPushButton(parent){
+
+//    parentComponent = parent ;
+//    setGeometry(0,0,_MIN_W,_MIN_H);
+//    QPalette palette(this->palette());
+//    palette.setColor(QPalette::Background, Qt::white);
+//    setPalette(palette);
+
+//    mouseHasPress = false;
+//    mouseHasRelease = false ;
+
+//    backgroundPix = new QPixmap(500,800);
+//    backgroundPix->fill(Qt::green);
+
+//    startP.setX(0);
+//    startP.setY(0);
+
+//    endP.setX(0);
+//    endP.setY(0);
+//}
 
 
 void Component::
@@ -66,14 +76,14 @@ paintEvent(QPaintEvent * e){
         // 按下，移动过程，绘制在 form 上
         // 先绘制画布
 //        paintform.drawPixmap(0,0,_MIN_W,_MIN_H,*backgroundPix);
-        paintform.drawPixmap(0,0,500,500,*backgroundPix);
+        paintform.drawPixmap(0,0,_MIN_W,_MIN_H,*backgroundPix);
         // 在画布上绘制目标对象
         QRect * rect = new QRect(startP,endP);
         paintform.drawRect(*rect);
     } else if( !mouseHasPress && mouseHasRelease ){
         QPoint point = startP - endP;
         if (point.manhattanLength() < 10){
-            paintform.drawPixmap(0,0,500,500,*backgroundPix);
+            paintform.drawPixmap(0,0,_MIN_W,_MIN_H,*backgroundPix);
             return;
         } else {
             // 释放，将原来绘制在 form 上的对象，重新绘制到 pix 上
@@ -82,13 +92,13 @@ paintEvent(QPaintEvent * e){
                 mCurRect = new QRect(startP,endP);
                 paintPix.drawRect(*mCurRect);
                 // 再将 pix 绘制到 form 上
-                paintform.drawPixmap(0,0,500,500,*backgroundPix);
+                paintform.drawPixmap(0,0,_MIN_W,_MIN_H,*backgroundPix);
                 mouseHasRelease = false;
             }
         }
     } else {
         // 没有按下或释放
-        paintform.drawPixmap(0,0,500,500,*backgroundPix);
+        paintform.drawPixmap(0,0,_MIN_W,_MIN_H,*backgroundPix);
     }
 }
 
@@ -121,13 +131,11 @@ mouseReleaseEvent(QMouseEvent *event){
         // 释放，将原来绘制在 form 上的对象，重新绘制到 pix 上
         if( (startP.x() < endP.x()) &&( startP.y() < endP.y() ) ){
             // 定义从 “左上-->右下” 的拖曳操作方式
-            mCurRect = new QRect(startP,endP);
             /// 在元件内部再生成“子元件”
             Component* c = new Component(this);
             c->show();
-            c->setGeometry(*mCurRect);
+            c->setGeometry(QRect(startP,endP));
             c->coordinate = startP;
-            c->size = mCurRect->size();
             /// 将新的元件添加到她自身的 childComponentList 中
             childComponentList.append(c);
             emit createNewComponent();

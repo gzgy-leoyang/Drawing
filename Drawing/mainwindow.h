@@ -23,6 +23,9 @@ private:
     Ui::MainWindow *ui;
     Component* DrawComponent;
 
+protected:
+    bool eventFilter(QObject *, QEvent *);
+
 private slots:
     void slot_newComponent(Component* cmp);
     void slot_addNewComponent();
