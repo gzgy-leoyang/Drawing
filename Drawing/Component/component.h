@@ -32,11 +32,16 @@ class Component : public QPushButton
     Q_OBJECT
 public:
     explicit Component(QWidget *parent = 0);
+    Component(Component *parent = 0);
     QPoint      coordinate;
     QSize       size;
+    QList<Component*> childComponentList;
+signals:
+    void createNewComponent();
+
 
 private:
-
+    Component *parentComponent ;
     QPoint startP;
     QPoint endP;
     QPixmap* backgroundPix;
@@ -46,7 +51,7 @@ private:
 
     QRect* mCurRect;
 
-    QList<Component*> cpttList;
+
 
 protected:
     void mousePressEvent(QMouseEvent *event);

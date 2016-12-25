@@ -29,7 +29,7 @@ DrawPanel::DrawPanel(QList<Component*> *list ,QWidget *parent)
     endP.setX(0);
     endP.setY(0);
 
-    cpttList = list;
+    pTopList = list;
 }
 
 
@@ -116,14 +116,14 @@ mouseReleaseEvent(QMouseEvent *event){
         // 释放，将原来绘制在 form 上的对象，重新绘制到 pix 上
         if( (startP.x() < endP.x()) &&( startP.y() < endP.y() ) ){
             // 定义从 “左上-->右下” 的拖曳操作方式
-            mCurRect = new QRect(startP,endP);
-            Rectangle* c = new Rectangle(this);
-            c->show();
-            c->setGeometry(*mCurRect);
-            c->coordinate = startP;
-            c->size = mCurRect->size();
-            cpttList->append(c);
-            emit creatNewComponent();
+//            mCurRect = new QRect(startP,endP);
+//            //Rectangle* c = new Rectangle(this);
+//            c->show();
+//            c->setGeometry(*mCurRect);
+//            c->coordinate = startP;
+//            c->size = mCurRect->size();
+//            pTopList->append(c);
+//            emit creatNewComponent();
             //emit insertNewComponent(c);
 
         }

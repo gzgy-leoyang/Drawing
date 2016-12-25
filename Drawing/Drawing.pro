@@ -14,13 +14,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    Component/rectangle.cpp \
-    DrawPanel/drawpanel.cpp \
     Component/component.cpp
 
 HEADERS  += mainwindow.h \
-    Component/rectangle.h \
-    DrawPanel/drawpanel.h \
     Component/component.h
 
 FORMS    += mainwindow.ui

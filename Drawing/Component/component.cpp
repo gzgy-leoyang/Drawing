@@ -1,7 +1,10 @@
 #include "component.h"
 
-#define _MIN_W  (90)
-#define _MIN_H  (90)
+//#define _MIN_W  (90)
+//#define _MIN_H  (90)
+
+#define _MIN_W  (610)
+#define _MIN_H  (610)
 
 Component::Component(QWidget *parent) : QPushButton(parent){
 
@@ -13,8 +16,8 @@ Component::Component(QWidget *parent) : QPushButton(parent){
     mouseHasPress = false;
     mouseHasRelease = false ;
 
-    backgroundPix = new QPixmap(500,500);
-    backgroundPix->fill(Qt::red);
+    backgroundPix = new QPixmap(_MIN_W,_MIN_H);
+    backgroundPix->fill(Qt::gray);
 
     startP.setX(0);
     startP.setY(0);
@@ -22,6 +25,28 @@ Component::Component(QWidget *parent) : QPushButton(parent){
     endP.setX(0);
     endP.setY(0);
 }
+
+Component::Component(Component *parent) : QPushButton(parent){
+
+    parentComponent = parent ;
+    setGeometry(0,0,_MIN_W,_MIN_H);
+    QPalette palette(this->palette());
+    palette.setColor(QPalette::Background, Qt::white);
+    setPalette(palette);
+
+    mouseHasPress = false;
+    mouseHasRelease = false ;
+
+    backgroundPix = new QPixmap(500,500);
+    backgroundPix->fill(Qt::green);
+
+    startP.setX(0);
+    startP.setY(0);
+
+    endP.setX(0);
+    endP.setY(0);
+}
+
 
 void Component::
 paintEvent(QPaintEvent * e){
@@ -67,12 +92,14 @@ paintEvent(QPaintEvent * e){
     }
 }
 
+
 void Component::mouseMoveEvent(QMouseEvent *event){
     if( mouseHasPress){
         endP = event->pos();
         update();
     }
 }
+
 
 void Component::mousePressEvent(QMouseEvent *event){
     if( event->button()==Qt::LeftButton ){
@@ -81,6 +108,7 @@ void Component::mousePressEvent(QMouseEvent *event){
         mouseHasRelease = false;
     }
 }
+
 
 void Component::
 mouseReleaseEvent(QMouseEvent *event){
@@ -93,16 +121,20 @@ mouseReleaseEvent(QMouseEvent *event){
         // 释放，将原来绘制在 form 上的对象，重新绘制到 pix 上
         if( (startP.x() < endP.x()) &&( startP.y() < endP.y() ) ){
             // 定义从 “左上-->右下” 的拖曳操作方式
-            //mCurRect = new QRect(startP,endP);
-//            Component* c = new Component(this);
-//            c->show();
-//            c->setGeometry(*mCurRect);
-//            c->coordinate = startP;
-//            c->size = mCurRect->size();
-            //emit insertNewComponent(c);
+            mCurRect = new QRect(startP,endP);
+            /// 在元件内部再生成“子元件”
+            Component* c = new Component(this);
+            c->show();
+            c->setGeometry(*mCurRect);
+            c->coordinate = startP;
+            c->size = mCurRect->size();
+            /// 将新的元件添加到她自身的 childComponentList 中
+            childComponentList.append(c);
+            emit createNewComponent();
         }
     }
 }
+
 
 void Component::repaint()//重画时
 {

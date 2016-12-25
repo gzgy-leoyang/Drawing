@@ -18,10 +18,10 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    QList<Component*> componentList;
 
 private:
     Ui::MainWindow *ui;
+    Component* DrawComponent;
 
 private slots:
     void slot_newComponent(Component* cmp);

@@ -46,7 +46,7 @@ private:
 
     QRect* mCurRect;
 
-    QList<Component*>* cpttList;
+    QList<Component*>* pTopList;
 
 signals:
     void insertNewComponent(Component* cmp);

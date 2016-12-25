@@ -3,12 +3,12 @@
 
 Rectangle::
 Rectangle(QWidget *parent) : Component(parent){
-    connect(this,&Component::clicked,this,&Rectangle::slot_clicked);
+//    connect(this,&Component::clicked,this,&Rectangle::slot_clicked);
 }
 
 void Rectangle::
 slot_clicked(bool f){
-    DrawPanel * p = (DrawPanel*)this->parent();
-    p->updateComponentInfo(this);
+//    DrawPanel * p = (DrawPanel*)this->parent();
+//    p->updateComponentInfo(this);
 }
 
